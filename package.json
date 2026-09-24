@@ -5,7 +5,8 @@
   "main": "background/service_worker.js",
   "scripts": {
     "test": "node --test tests/*.test.js",
-    "generate-icons": "node scripts/generate_icons.js"
+    "generate-icons": "node scripts/generate_icons.js",
+    "build:zip": "node scripts/package_extension.js"
   },
   "keywords": [
     "ipo",
