@@ -1,9 +1,9 @@
-# Privacy Policy for IPO GMP Tracker & Advisory
+# Privacy Policy for IPO GMP Tracker & Filter
 
 **Last Updated:** September 24, 2026
 
 ## 1. Overview
-IPO GMP Tracker & Advisory ("we", "our", or "the Extension") is committed to protecting your privacy. This Privacy Policy explains our practices regarding user information.
+IPO GMP Tracker & Filter ("we", "our", or "the Extension") is committed to protecting your privacy. This Privacy Policy explains our practices regarding user information.
 
 ## 2. No Personal Data Collection
 The Extension **does not collect, store, transmit, or sell** any personal data, sensitive user information, or web browsing history.
@@ -29,8 +29,11 @@ We do not share, sell, transfer, or disclose any user data to third parties.
 ## 6. Children's Privacy
 The Extension does not collect information from anyone, including children under 13.
 
-## 7. Changes to This Policy
+## 7. Financial Disclaimer
+IPO GMP Tracker & Filter is an informational and personal screening utility based on publicly reported, unofficial grey market estimates. The Extension **does not provide financial, investment, or legal advice**, and does not recommend buying, selling, subscribing to, or withdrawing applications for any securities or IPOs. Users are solely responsible for their own investment choices and should consult a certified financial advisor.
+
+## 8. Changes to This Policy
 If we make any changes to this Privacy Policy, the revised version will be posted here with an updated date.
 
-## 8. Contact Information
+## 9. Contact Information
 If you have any questions or feedback regarding this Privacy Policy, please open an issue on the project repository or contact the developer.

@@ -1,127 +1,108 @@
-# Chrome Web Store Listing — IPO GMP Tracker & Advisory (IPO Watch)
+# Chrome Web Store Listing & Privacy Submission Guide
 
 > Last Updated: 2026-09-24
 
-## Store Listing
+---
+
+## 1. Store Listing Details
 
 **Extension Name**
-IPO GMP Tracker & Advisory (IPO Watch)
+```
+IPO GMP Tracker & Filter (IPO Watch)
+```
 
-**Short Description**
-Filter Upcoming & Open IPOs with >15% GMP on IPOWatch, view daily trends, and get cancel advisories 1 day before close.
+**Summary / Short Description** (Max 132 chars)
+```
+Filter Upcoming & Open IPOs with >15% GMP on IPOWatch, view day-by-day trends, and receive personal threshold alerts.
+```
 
-**Detailed Description**
-IPO GMP Tracker & Advisory helps stock market investors make smarter IPO decisions on IPOWatch (ipowatch.in) by eliminating low-demand noise and protecting capital.
+**Detailed Description** (Copy & paste into Store Listing)
+```markdown
+IPO GMP Tracker & Filter is a personal productivity and analytical screening tool for retail stock market enthusiasts browsing IPOWatch (ipowatch.in). It simplifies tracking by filtering high-sentiment IPOs based on your custom criteria and displaying daily grey market premium trends.
 
-Key Features:
-- Automatic High-Conviction Filter: Instantly hides closed IPOs and low-sentiment issues, showing only Upcoming and Open IPOs with Grey Market Premium (GMP) > 15%.
-- Capital Protection Cancel Advisories: Flags an unmistakable cancellation alert if an open IPO's GMP slips below 15% on or by 1 day before its close date.
-- Day-by-Day Historical Trends: Inspect full daily GMP and gain % movement across all recorded days leading up to closing date with interactive SVG sparklines and history logs.
-- Dual Experience: Works as an automatic in-page toolbar directly on IPOWatch tables and as a standalone browser popup accessible across any tab.
-- Portfolio Watchlist: Mark IPOs as applied to keep track of your active bids and receive timely notifications.
-- Customizable Threshold: Adjust the minimum GMP % filter anytime (default: 15%).
+KEY FEATURES:
+- Automated Threshold Filter: Instantly screens public tables to show only Upcoming and Open IPOs meeting your target Grey Market Premium (default: >15%).
+- Day-by-Day Historical Trends: Inspect historical daily GMP and estimated premium trajectories with interactive charts and date logs leading up to close dates.
+- Personal Threshold Alerts: Highlights open IPOs whose GMP is below your target threshold 1 day prior to closing so you can review your personal strategy before bidding ends.
+- In-Page Enhancement & Browser Popup: Seamlessly adds a screening toolbar to IPOWatch tables and provides a floating extension popup accessible from any browser tab.
+- Watchlist Tracking: Mark issues as applied to keep a clean personal record of IPOs you are monitoring.
+- Customizable Criteria: Set your preferred minimum GMP percentage (e.g., 10%, 15%, 20%) at any time.
 
-How to Use:
-1. Visit the live IPO GMP page on IPOWatch (ipowatch.in) to see the in-page filter and trend buttons.
-2. Click "📈 Trend" on any row to view its day-by-day trajectory and closing countdown.
-3. Click the extension icon in your browser toolbar anytime to view current qualifying IPOs and check for cancellation alerts.
-4. If an IPO you applied for shows "🚨 CANCEL APPLICATION", review your bid before the issue closes.
+HOW TO USE:
+1. Visit the live IPO GMP page on IPOWatch (ipowatch.in) to view the automated screening toolbar and trend charts.
+2. Click "View Trend" on any IPO row to inspect its historical day-by-day trajectory.
+3. Click the extension icon in your browser anytime to view matching IPOs, adjust your threshold, and view personal review alerts.
 
-Privacy & Security:
-- 100% Client-Side: Runs entirely in your browser without collecting, storing, or transmitting any personal data or browsing history.
-- No External Trackers: Zero analytics, zero ads, and zero third-party telemetry.
-- Scoped Access: Works exclusively with IPOWatch GMP pages.
+PRIVACY & SECURITY:
+- 100% Client-Side: Runs entirely in your local browser without transmitting any personal data or browsing activity.
+- Zero External Analytics: No ads, no third-party trackers, no analytics SDKs.
+- Focused Scope: Operates strictly on ipowatch.in public data.
 
-Support & Feedback:
-For questions, feature requests, or bug reports, please visit our project repository or contact us via email.
+DISCLAIMER & REGULATORY NOTICE:
+IPO GMP Tracker & Filter is strictly an informational and analytical filtering utility based on publicly reported, unofficial grey market premium estimates. It does NOT provide financial, investment, or legal advice, and does NOT recommend buying, selling, subscribing to, or withdrawing applications for any securities or IPOs. Grey market rates are unofficial, unregulated, and subject to volatility. All investment decisions are solely the responsibility of the user. Always consult a SEBI-registered or certified financial advisor before investing.
+```
 
 **Category**
-Productivity
-
-**Single Purpose**
-Filters Upcoming and Open IPOs with greater than 15% GMP on IPOWatch, visualizes day-by-day trends, and advises cancellation 1 day before close if GMP falls below 15%.
-
-**Primary Language**
-English
+```
+Productivity  (or Search Tools)
+```
 
 ---
 
-## Graphics & Assets
+## 2. Privacy Tab Form Answers (Exact Copy-Paste)
 
-| Asset | Dimensions | Status | Filename |
-|-------|-----------|--------|----------|
-| Store Icon [REQUIRED] | 128×128 PNG | ✅ Ready | `icons/icon128.png` |
-| Small Icon | 16×16, 32×32, 48×48 PNG | ✅ Ready | `icons/icon16.png`, `icons/icon32.png`, `icons/icon48.png` |
-| Screenshot 1 [REQUIRED] | 1280×800 or 640×400 | ⬜ To Capture | In-Page Toolbar on IPOWatch |
-| Screenshot 2 [RECOMMENDED] | 1280×800 or 640×400 | ⬜ To Capture | Day-by-Day Trend Modal & Chart |
-| Screenshot 3 [RECOMMENDED] | 1280×800 or 640×400 | ⬜ To Capture | Browser Popup Dashboard |
-| Small Promo Tile [RECOMMENDED] | 440×280 | ⬜ Optional | Promo banner |
-| Marquee Promo Tile | 1400×560 | ⬜ Optional | Marquee banner |
+### Single purpose description*
+```
+Provides an automated filtering toolbar and day-by-day trend visualizer for publicly listed IPO Grey Market Premium tables on ipowatch.in based on user-configured criteria.
+```
 
----
+### Permission Justifications
 
-## Permissions Justification
+#### storage justification*
+```
+Used locally on the user's device to save user preferences (minimum GMP percentage threshold, filter view preferences, and locally pinned IPO watchlist items). No data is ever collected or sent to external servers.
+```
 
-| Permission | Type | Justification |
-|------------|------|---------------|
-| `storage` | permissions | Used to save user preferences (minimum GMP threshold), personal applied IPO watchlist, and local daily GMP snapshot history for offline trend charts. |
-| `alarms` | permissions | Used to schedule periodic background checks (hourly) to update daily GMP trend snapshots without requiring a persistent background tab. |
-| `notifications` | permissions | Used to deliver capital protection desktop notifications when an applied IPO's GMP falls below 15% 1 day before closing. |
-| `*://ipowatch.in/*` | host_permissions | Required to fetch and read live IPO GMP tables from ipowatch.in and inject the interactive filtering and trend visualizer toolbar onto the page. |
+#### alarms justification*
+```
+Used to trigger periodic background updates (every 60 minutes) to refresh publicly available grey market premium data from ipowatch.in and evaluate user-defined threshold alerts.
+```
 
----
+#### notifications justification*
+```
+Used to deliver local desktop notifications when an open IPO on the user's watchlist falls below their user-defined minimum GMP threshold one day before its closing date, reminding the user to review their personal criteria.
+```
 
-## Privacy & Data Use
-
-### Data Collection
-
-**Does the extension collect user data?** No
-
-All data processing happens 100% locally on the user's computer. The extension only reads public stock market data from `ipowatch.in` and stores user settings (threshold, watchlist) in local browser storage.
-
-| Data Type | Collected? | Transmitted Off-Device? | Purpose | Shared with Third Parties? |
-|-----------|-----------|------------------------|---------|---------------------------|
-| Personally identifiable info | No | No | None | No |
-| Health info | No | No | None | No |
-| Financial info | No | No | None | No |
-| Authentication info | No | No | None | No |
-| Personal communications | No | No | None | No |
-| Location | No | No | None | No |
-| Web history | No | No | None | No |
-| User activity | No | No | None | No |
-| Website content | No | No | Reads public table on ipowatch.in locally | No |
-
-### Data Use Certification
-- [x] Data is NOT sold to third parties
-- [x] Data is NOT used for purposes unrelated to the extension's core functionality
-- [x] Data is NOT used for creditworthiness or lending purposes
+#### Host permission justification* (for `*://ipowatch.in/*`)
+```
+Required exclusively to read public HTML tables on ipowatch.in, inject the interactive filtering toolbar, and fetch updated grey market premium figures for the popup and trend charts. No other domains or user browsing history are accessed.
+```
 
 ---
 
-## Privacy Policy
-
-**Privacy Policy URL** [REQUIRED]
-Host `PRIVACY_POLICY.md` on GitHub Pages, Notion, or your personal website (e.g. `https://<your-username>.github.io/ipo-gmp-tracker/privacy`).
-
----
-
-## Distribution
-
-**Visibility**: Public (or Unlisted for private link sharing)  
-**Regions**: All regions (specifically India where IPOWatch is used)  
+### Remote Code Question
+- **Select**: `(•) No, I am not using remote code`  
+*(All scripts are packaged locally within the extension; no eval(), new Function(), or external script tags are used).*
 
 ---
 
-## Developer Info
-
-**Publisher Name**: Saksham  
-**Contact Email**: [Your developer contact email]  
-**Support URL**: [Your GitHub repository issues page or email]  
+### Data Usage Disclosures
+- **What user data do you plan to collect from users now or in the future?**
+  - **LEAVE ALL BOXES UNCHECKED**.
+  - *(The extension does not collect or transmit ANY personal info, health info, financial info, credentials, communications, location, web history, or user activity).*
 
 ---
 
-## Version History
+### Data Use Certifications
+- **Check all three boxes**:
+  - [x] *I do not sell or transfer user data to third parties, outside of the approved use cases*
+  - [x] *I do not use or transfer user data for purposes that are unrelated to my item's single purpose*
+  - [x] *I do not use or transfer user data to determine creditworthiness or for lending purposes*
 
-| Version | Date | Changes | Status |
-|---------|------|---------|--------|
-| 1.0.0 | 2026-09-24 | Initial release: >15% GMP filtering, 1-day-before cancellation advisory, trend modal, popup dashboard, background notifications. | Ready for Submission |
+---
+
+### Privacy Policy URL*
+```
+https://github.com/saksham-wadhwa-0008/ipo-gmp-tracker-extension/blob/feature/ipo-gmp-tracker-extension/PRIVACY_POLICY.md
+```
+*(Or the raw GitHub URL: `https://raw.githubusercontent.com/saksham-wadhwa-0008/ipo-gmp-tracker-extension/feature/ipo-gmp-tracker-extension/PRIVACY_POLICY.md`)*

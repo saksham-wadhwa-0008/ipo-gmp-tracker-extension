@@ -34,10 +34,10 @@
     <!-- Global Cancel Warning Alert (if any active) -->
     <div id="cancel-alert-banner" class="alert-banner hidden">
       <div class="alert-banner-content">
-        <span class="alert-banner-icon">🚨</span>
+        <span class="alert-banner-icon">⚠️</span>
         <div>
-          <strong>Capital Protection Alert:</strong>
-          <span id="cancel-alert-text">You have IPOs closing soon with GMP &lt; 15%!</span>
+          <strong>Threshold Alert:</strong>
+          <span id="cancel-alert-text">IPOs closing soon are below your target GMP threshold!</span>
         </div>
       </div>
       <button id="view-cancel-alerts-btn" class="alert-banner-action">View</button>
@@ -56,7 +56,7 @@
         <div class="metric-meta">Active Bidding</div>
       </div>
       <div class="metric-card card-alerts" id="metric-card-alerts">
-        <div class="metric-title">Cancel Alerts</div>
+        <div class="metric-title">Below Target</div>
         <div class="metric-value" id="stat-alerts">0</div>
         <div class="metric-meta">&lt;15% &amp; 1d to Close</div>
       </div>
@@ -84,7 +84,7 @@
       <button class="tab-btn active" data-tab="qualified">⭐ Qualified (&gt;15%)</button>
       <button class="tab-btn" data-tab="open">🟢 Open</button>
       <button class="tab-btn" data-tab="upcoming">⏳ Upcoming</button>
-      <button class="tab-btn tab-btn-danger" data-tab="cancel_alerts">🚨 Cancel Alerts</button>
+      <button class="tab-btn tab-btn-danger" data-tab="cancel_alerts">⚠️ Below Target</button>
       <button class="tab-btn" data-tab="watchlist">★ Applied</button>
       <button class="tab-btn" data-tab="all">📋 All</button>
     </div>
@@ -106,6 +106,11 @@
         <!-- Rendered via popup.js -->
       </div>
     </main>
+
+    <!-- Disclaimer Bar -->
+    <div class="popup-disclaimer" style="padding: 6px 14px; background: #F8FAFC; border-top: 1px solid #E2E8F0; font-size: 10px; color: #64748B; text-align: center; line-height: 1.3;">
+      ℹ️ Personal screening utility. Grey market estimates are unofficial. Not financial advice.
+    </div>
 
     <!-- Footer -->
     <footer class="app-footer">

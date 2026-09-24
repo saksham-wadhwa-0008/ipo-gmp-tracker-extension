@@ -103,8 +103,8 @@ async function sendCancelNotification(ipo, threshold) {
   chrome.notifications.create(notifId, {
     type: 'basic',
     iconUrl: chrome.runtime.getURL('icons/icon128.png'),
-    title: `🚨 IPO Watch: Cancel Application Advisory!`,
-    message: `${ipo.name} closes soon, but GMP is only ${ipo.gmpPercent}% (< ${threshold}%). Review and cancel application to protect capital.`,
+    title: `⚠️ IPO GMP Alert: Below ${threshold}% Target`,
+    message: `${ipo.name} closes soon and its GMP is currently ${ipo.gmpPercent}% (< ${threshold}% target). Tracked for your personal review.`,
     priority: 2,
     requireInteraction: true
   }, async (createdId) => {
