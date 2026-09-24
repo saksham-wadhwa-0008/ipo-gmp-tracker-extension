@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPO GMP Tracker (>15%)</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <img src="../icons/icon32.png" alt="Logo" class="header-logo">
+        <div>
+          <h1 class="header-title">IPO GMP Tracker</h1>
+          <div class="header-subtitle">Live IPOWatch Intelligence</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="refresh-btn" class="icon-btn" title="Refresh Live Data">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+          </svg>
+        </button>
+        <a href="https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/" target="_blank" class="icon-btn" title="Open IPO Watch Website">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <!-- Global Cancel Warning Alert (if any active) -->
+    <div id="cancel-alert-banner" class="alert-banner hidden">
+      <div class="alert-banner-content">
+        <span class="alert-banner-icon">🚨</span>
+        <div>
+          <strong>Capital Protection Alert:</strong>
+          <span id="cancel-alert-text">You have IPOs closing soon with GMP &lt; 15%!</span>
+        </div>
+      </div>
+      <button id="view-cancel-alerts-btn" class="alert-banner-action">View</button>
+    </div>
+
+    <!-- Summary Metrics Cards -->
+    <div class="metrics-grid">
+      <div class="metric-card card-qualified">
+        <div class="metric-title">GMP &gt; 15%</div>
+        <div class="metric-value" id="stat-qualified">-</div>
+        <div class="metric-meta">Upcoming &amp; Open</div>
+      </div>
+      <div class="metric-card card-open">
+        <div class="metric-title">Open Now</div>
+        <div class="metric-value" id="stat-open">-</div>
+        <div class="metric-meta">Active Bidding</div>
+      </div>
+      <div class="metric-card card-alerts" id="metric-card-alerts">
+        <div class="metric-title">Cancel Alerts</div>
+        <div class="metric-value" id="stat-alerts">0</div>
+        <div class="metric-meta">&lt;15% &amp; 1d to Close</div>
+      </div>
+    </div>
+
+    <!-- Search & Settings Controls -->
+    <div class="filter-bar">
+      <div class="search-box">
+        <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="search-input" placeholder="Search IPOs..." />
+      </div>
+
+      <div class="threshold-pill">
+        <span>Min GMP:</span>
+        <input type="number" id="threshold-input" value="15" min="1" max="100" />
+        <span>%</span>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="qualified">⭐ Qualified (&gt;15%)</button>
+      <button class="tab-btn" data-tab="open">🟢 Open</button>
+      <button class="tab-btn" data-tab="upcoming">⏳ Upcoming</button>
+      <button class="tab-btn tab-btn-danger" data-tab="cancel_alerts">🚨 Cancel Alerts</button>
+      <button class="tab-btn" data-tab="watchlist">★ Applied</button>
+      <button class="tab-btn" data-tab="all">📋 All</button>
+    </div>
+
+    <!-- Main Content List -->
+    <main class="content-area">
+      <div id="loading-spinner" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading IPO GMP Data...</p>
+      </div>
+
+      <div id="empty-state" class="empty-state hidden">
+        <span class="empty-icon">🔍</span>
+        <h3 id="empty-title">No IPOs found</h3>
+        <p id="empty-subtitle">Try adjusting your filters or search terms.</p>
+      </div>
+
+      <div id="ipo-list" class="ipo-list">
+        <!-- Rendered via popup.js -->
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-status">
+        <span class="status-indicator"></span>
+        <span id="last-updated-text">Last Updated: Today</span>
+      </div>
+      <div class="footer-links">
+        <span class="version-tag">v1.0.0</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../utils/date_utils.js"></script>
+  <script src="../utils/parser.js"></script>
+  <script src="../utils/seed_data.js"></script>
+  <script src="../utils/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
