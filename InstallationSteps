@@ -1,0 +1,14 @@
+🚀 IPO GMP Tracker & Advisory Chrome Extension (v1.0.0)
+
+Track high-conviction IPOs on IPOWatch with zero noise:
+✅ Automatically filters Upcoming & Open IPOs with >15% GMP
+✅ Day-by-day historical GMP trends with SVG visual charts
+✅ Capital protection: Tells you to CANCEL your application 1 day before close if GMP slips below 15%!
+
+📥 Quick Install (30 seconds):
+1. Download `ipo-gmp-tracker-v1.0.0.zip` from: remote link
+2. Unzip the file on your computer.
+3. Open Google Chrome and go to: `chrome://extensions/`
+4. Toggle "Developer mode" ON in the top-right corner.
+5. Click "Load unpacked" (top-left) and select the unzipped folder.
+6. Open https://ipowatch.in/ipo-grey-market-premium-latest-ipo-gmp/ and enjoy!
