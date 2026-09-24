@@ -309,8 +309,8 @@
       const emptySub = document.getElementById('empty-subtitle');
 
       if (activeTab === 'cancel_alerts') {
-        emptyTitle.textContent = 'No Cancel Advisories 🎉';
-        emptySub.textContent = `All IPOs ending soon have healthy GMP (>= ${currentThreshold}%).`;
+        emptyTitle.textContent = 'No Threshold Alerts 🎉';
+        emptySub.textContent = `All IPOs ending soon have GMP >= ${currentThreshold}%.`;
       } else if (activeTab === 'watchlist') {
         emptyTitle.textContent = 'No Applied IPOs';
         emptySub.textContent = 'Click "★ Mark Applied" on any IPO card to track it here.';

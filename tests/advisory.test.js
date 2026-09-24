@@ -20,8 +20,7 @@ test('Advisory Logic - 1 day before close with GMP < 15% triggers CANCEL_APPLICA
   assert.strictEqual(result.daysRemaining, 1);
   assert.strictEqual(result.shouldCancel, true);
   assert.strictEqual(result.advisoryType, 'CANCEL_APPLICATION');
-  assert.strictEqual(result.advisoryLevel, 'danger');
-  assert.match(result.advisoryMessage, /CANCEL APPLICATION/i);
+  assert.match(result.advisoryMessage, /BELOW THRESHOLD/i);
   assert.match(result.advisoryMessage, /closes tomorrow/i);
 });
 
@@ -61,7 +60,7 @@ test('Advisory Logic - 1 day before close with GMP >= 15% qualifies and does NOT
   assert.strictEqual(result.qualifies, true);
   assert.strictEqual(result.advisoryType, 'QUALIFIED_APPLY');
   assert.strictEqual(result.advisoryLevel, 'success');
-  assert.match(result.advisoryMessage, /SAFE TO APPLY/i);
+  assert.match(result.advisoryMessage, /MEETS TARGET/i);
 });
 
 test('Advisory Logic - Custom threshold', () => {

@@ -154,23 +154,23 @@
       advisoryType = 'CANCEL_APPLICATION';
       advisoryLevel = 'danger';
       const timeFrame = isClosingToday ? 'closes today' : 'closes tomorrow (1 day left)';
-      advisoryMessage = `🚨 CANCEL APPLICATION: GMP is only ${gmpPercent}% (< ${threshold}%) and IPO ${timeFrame}! High risk of flat or negative listing.`;
+      advisoryMessage = `⚠️ BELOW THRESHOLD (Application Review Alert): GMP is ${gmpPercent}% (< ${threshold}% target) and IPO ${timeFrame}. Below your filter threshold.`;
     } else if (isOpen && !isLowGmp) {
       advisoryType = 'QUALIFIED_APPLY';
       advisoryLevel = 'success';
-      advisoryMessage = `✅ SAFE TO APPLY: Strong GMP at ${gmpPercent}% (> ${threshold}%).`;
+      advisoryMessage = `✅ MEETS TARGET: Strong GMP at ${gmpPercent}% (≥ ${threshold}% target). Meets your filter criteria.`;
     } else if (isUpcoming && !isLowGmp) {
       advisoryType = 'UPCOMING_HIGH_GMP';
       advisoryLevel = 'success';
-      advisoryMessage = `⭐ UPCOMING GEM: GMP is ${gmpPercent}% (> ${threshold}%). Keep funds ready.`;
+      advisoryMessage = `⭐ UPCOMING: GMP is ${gmpPercent}% (≥ ${threshold}% target).`;
     } else if (isUpcoming && isLowGmp) {
       advisoryType = 'UPCOMING_LOW_GMP';
       advisoryLevel = 'neutral';
-      advisoryMessage = `⏳ UPCOMING: GMP is ${gmpPercent}% (< ${threshold}%). Wait for trend confirmation.`;
+      advisoryMessage = `⏳ UPCOMING: GMP is ${gmpPercent}% (< ${threshold}% target).`;
     } else if (isOpen && isLowGmp) {
       advisoryType = 'OPEN_LOW_GMP';
       advisoryLevel = 'warning';
-      advisoryMessage = `⚠️ CAUTION: GMP is currently ${gmpPercent}% (< ${threshold}%). Recheck trend before final day.`;
+      advisoryMessage = `ℹ️ BELOW TARGET: GMP is currently ${gmpPercent}% (< ${threshold}% target).`;
     }
 
     // Filter rule: "only show the upcoming,opne ipo who have greater than 15% GMP"

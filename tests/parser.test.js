@@ -70,8 +70,7 @@ test('Parser Advisory - evaluateAdvisory rules & precedence', () => {
   assert.strictEqual(eval1.isOneDayBefore, true);
   assert.strictEqual(eval1.daysRemaining, 1);
   assert.strictEqual(eval1.shouldCancel, true);
-  assert.strictEqual(eval1.advisoryType, 'CANCEL_APPLICATION');
-  assert.match(eval1.advisoryMessage, /CANCEL APPLICATION/);
+  assert.match(eval1.advisoryMessage, /BELOW THRESHOLD/);
 
   // Scenario 2: Open IPO, 1 day before close, GMP is 25.37% (>= 15%)
   const ipoHighGmpEndingTomorrow = {

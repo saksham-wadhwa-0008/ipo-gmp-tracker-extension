@@ -90,7 +90,7 @@
           </div>
           ${cancelCount > 0 ? `
             <div class="ipo-stat-chip stat-alerts" id="ipo-stat-alerts-chip" title="IPOs closing soon with GMP < ${escapeHtml(currentThreshold)}%">
-              <span>🚨 Cancel Advisories:</span> <strong>${cancelCount}</strong>
+              <span>⚠️ Below Target:</span> <strong>${cancelCount}</strong>
             </div>
           ` : ''}
         </div>
@@ -99,17 +99,17 @@
       <div class="ipo-toolbar-controls">
         <div class="ipo-filter-buttons">
           <button class="ipo-btn ${filterState === 'qualified' ? 'active' : ''}" data-filter="qualified">
-            🌟 All Qualified (&gt;${escapeHtml(currentThreshold)}%)
+            🌟 Qualified (≥${escapeHtml(currentThreshold)}%)
           </button>
           <button class="ipo-btn ${filterState === 'open_high' ? 'active' : ''}" data-filter="open_high">
-            🟢 Open (&gt;${escapeHtml(currentThreshold)}%)
+            🟢 Open (≥${escapeHtml(currentThreshold)}%)
           </button>
           <button class="ipo-btn ${filterState === 'upcoming_high' ? 'active' : ''}" data-filter="upcoming_high">
-            ⏳ Upcoming (&gt;${escapeHtml(currentThreshold)}%)
+            ⏳ Upcoming (≥${escapeHtml(currentThreshold)}%)
           </button>
           ${cancelCount > 0 ? `
             <button class="ipo-btn btn-danger ${filterState === 'cancel_alerts' ? 'active' : ''}" data-filter="cancel_alerts">
-              🚨 Cancel Alerts (${cancelCount})
+              ⚠️ Below Target (${cancelCount})
             </button>
           ` : ''}
           <button class="ipo-btn ${filterState === 'all' ? 'active' : ''}" data-filter="all">
@@ -127,13 +127,17 @@
       ${cancelCount > 0 ? `
         <div class="ipo-global-alert-banner" id="ipo-global-alert-banner">
           <div>
-            <strong>⚠️ Capital Protection Warning:</strong> 
-            There are <strong>${cancelCount} Open IPOs</strong> ending tomorrow (or today) where GMP is <strong>below ${escapeHtml(currentThreshold)}%</strong>. 
-            Review and cancel applications to prevent potential negative listing losses!
+            <strong>⚠️ Threshold Notice:</strong> 
+            There are <strong>${cancelCount} Open IPO(s)</strong> ending soon where GMP is <strong>below ${escapeHtml(currentThreshold)}%</strong>. 
+            Tracked for your personal review against your criteria.
           </div>
           <button class="ipo-alert-banner-close" id="ipo-alert-banner-close">&times;</button>
         </div>
       ` : ''}
+
+      <div class="ipo-disclaimer-notice" style="font-size: 11px; color: #64748B; padding: 6px 12px; background: rgba(0,0,0,0.03); border-top: 1px solid #E2E8F0; text-align: center;">
+        ℹ️ Personal screening tool based on public grey market estimates. Does not constitute financial or investment advice.
+      </div>
     `;
 
     targetTable.parentNode.insertBefore(toolbar, targetTable);
@@ -212,7 +216,7 @@
         if (ipo.shouldCancel) {
           const badge = document.createElement('span');
           badge.className = 'ipo-cell-badge ipo-badge-cancel ipo-injected';
-          badge.textContent = '🚨 CANCEL';
+          badge.textContent = '⚠️ BELOW TARGET';
           badge.title = ipo.advisoryMessage;
           nameCell.appendChild(badge);
         } else if (ipo.qualifies && ipo.status === 'Open') {
@@ -390,10 +394,10 @@
         <!-- Advisory Notice Banner -->
         <div class="ipo-modal-advisory advisory-${escapeHtml(ipo.advisoryLevel)}">
           <div style="font-size: 18px; line-height: 1;">
-            ${ipo.shouldCancel ? '🚨' : (ipo.qualifies ? '✅' : '⏳')}
+            ${ipo.shouldCancel ? '⚠️' : (ipo.qualifies ? '✅' : '⏳')}
           </div>
           <div>
-            <strong>${ipo.shouldCancel ? 'Action Required: Cancellation Advisory' : (ipo.qualifies ? 'Qualification Status' : 'Advisory')}</strong>
+            <strong>${ipo.shouldCancel ? 'Threshold Notice: Below Custom Target' : (ipo.qualifies ? 'Screening Status: Meets Criteria' : 'Screening Status')}</strong>
             <p style="margin: 4px 0 0 0;">${escapeHtml(ipo.advisoryMessage)}</p>
           </div>
         </div>
@@ -467,7 +471,7 @@
                     <td>${escapeHtml(t.trend)}</td>
                     <td>${escapeHtml(t.status)}</td>
                     <td>
-                      ${isUnder && isFinalDay ? '<span style="color: #DC2626; font-weight: 700;">🚨 CANCEL APP</span>' : 
+                      ${isUnder && isFinalDay ? '<span style="color: #DC2626; font-weight: 700;">⚠️ BELOW TARGET</span>' : 
                         (t.gmpPercent >= currentThreshold ? '<span style="color: #10B981; font-weight: 600;">✅ Qualified</span>' : '<span style="color: #94A3B8;">Low GMP</span>')}
                     </td>
                   </tr>
